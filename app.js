@@ -49,7 +49,13 @@ function decideOutcome(user, comp) {
 
 // reset to initial state
 function resetUI() {
-  playArea.hidden = true;
+  playArea.hidden = false; // keep play area visible at all times
+
+  userImg.src = "images/default.png";
+  compImg.src = "images/default.png";
+  compImg.hidden = false;
+  compSpinner.hidden = true;
+
   resultTextEl.innerText = "Pick your choice! 🤔";
   colorResultCard(resultTextEl.innerText);
 }
