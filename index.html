@@ -1,53 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="container">
     <header>
-        <h1>Rock Paper Scissors</h1>
+      <h1>Rock Paper Scissors</h1>
     </header>
-    
+    <div id="game-count">Games Played: 0</div>
+
+    <!-- Duel box -->
+    <div id="play-area" class="play-area" hidden>
+      <div class="play-slot">
+        <img id="user-img" src="" alt="Your choice">
+      </div>
+      <div class="vs">VS</div>
+      <div class="play-slot">
+        <div id="comp-spinner" class="spinner"></div>
+        <img id="comp-img" src="" alt="Computer choice" hidden>
+      </div>
+    </div>
+
+    <!-- Result card -->
+    <div id="result-card" class="result-card">
+      <p id="result-text">Pick your choice! 🤔</p>
+    </div>
+
+    <!-- Choices -->
     <div class="choices">
-        <div class="choice" id="rock">
-            <img src="images/rock.png" alt="rock img">
-        </div>
-        <div class="choice" id="paper">
-            <img src="images/paper.png" alt="paper img">
-        </div>
-        <div class="choice" id="scissors">
-            <img src="images/scissors.png" alt="scissor img">
-        </div>
+      <div class="choice" id="rock">
+        <img src="images/rock.png" alt="rock">
+      </div>
+      <div class="choice" id="paper">
+        <img src="images/paper.png" alt="paper">
+      </div>
+      <div class="choice" id="scissors">
+        <img src="images/scissors.png" alt="scissors">
+      </div>
     </div>
 
+    <!-- Scores -->
     <div class="score-board">
-        <div class="score">
-            <p id="user-score">0</p>
-            <p style="font-size: 1.8rem; letter-spacing: 0.158rem;">Your </p>
-            <p style="font-size: 1.6rem;">Wins</p>
-        </div>
-        <div class="score">
-            <p id="comp-score">0</p>
-            <p style="font-size: 1.8rem; letter-spacing: 0.1rem; margin-top: 0.258rem; margin-bottom: 0.258rem;">Computer</p>
-            <p style="font-size: 1.6rem;">Wins</p>
-        </div>
-        <div class="score">
-            <p id="draw-score">0</p>
-            <p style="font-size: 1.8rem; letter-spacing: 0.158rem;">Draw</p>
-            <p style="font-size: 1.6rem;">Games</p>
-        </div>
+      <div class="score">
+        <p id="user-score">0</p>
+        <span>Your Wins</span>
+      </div>
+      <div class="score">
+        <p id="comp-score">0</p>
+        <span>Computer Wins</span>
+      </div>
+      <div class="score">
+        <p id="draw-score">0</p>
+        <span>Draws</span>
+      </div>
     </div>
+  </div>
 
-    <div class="msg-container">
-        <p id="msg">
-            Play Your Move !
-        </p>
-    </div>
-
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

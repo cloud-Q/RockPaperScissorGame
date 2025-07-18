@@ -1,76 +1,145 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-align: center;
+/* Reset & full‑viewport flex container */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+html, body {
+  width: 100%; height: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw; height: 100vh;
+  padding: 1rem;
+  background: #f9f9f9;
 }
 
-h1{
-    height: 5rem;
-    background-color: #1C1678;
-    color: aliceblue;
-    line-height: 5rem;
-
-}
-.choice{
-    height: 165px;
-    width: 165px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Header */
+h1 {
+  font-size: 6vw;
+  color: #1C1678;
 }
 
-.choice:hover{
-    /* opacity: 50%; */
-    cursor: grab;
-    background-color: #081b31;
-
+/* Duel area */
+.play-area {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+}
+.play-slot {
+  position: relative;
+  width: 20vw; height: 20vw;
+  max-width: 100px; max-height: 90px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(122, 0, 0, 0.833);
+  display: flex; justify-content: center; align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.play-slot img {
+  width: 95%; height: 95%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+.vs {
+font-size: clamp(1rem, 5vw, 2rem);
+  font-weight: bold;
+  color: #333;
 }
 
-img{
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    border-radius: 50%;
+/* Spinner */
+.spinner {
+  width: 25%; height: 25%;
+  border: 4px solid rgba(0,0,0,0.1);
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Result card */
+.result-card {
+  width: 60vw; max-width: 280px;
+  height: 15vh; max-height: 100px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex; justify-content: center; align-items: center;
+  margin: 2vh 0;
+  transition: background 0.3s;
+}
+#result-text {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+
+  font-weight: bold;
+  color: #081b31;
 }
 
-.choices{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5rem;
-    gap: 3rem;
+/* Choices */
+.choices {
+  display: flex;
+  gap: 4vw;
+}
+.choice {
+  width: 20vw; height: 20vw;
+  max-width: 120px; max-height: 120px;
+  border-radius: 20px;
+  background: #fff;
+  display: flex; justify-content: center; align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.choice:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.choice img {
+  width: 100%; height: 100%;
+  object-fit:cover;
+  border-radius: 20px;
 }
 
-.score-board{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
+/* Scoreboard */
+.score-board {
+  display: flex;
+  gap: 6vw;
+  margin-top: 2vh;
+}
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.score p {
+  /* font-size: 5vw;  */
+  font-size: clamp(1rem, 5vw, 2rem);
+  font-weight: bold;
+  color: #1C1678;
+}
+.score span {
+  /* font-size: 3vw; */
+  font-size: clamp(1rem, 3vw, 2rem);
+ 
+  color: #555;
 }
 
-.score{
-    font-weight: bolder;
-    font-size: 1.3rem;
-    padding: 1rem;
-    margin: 0.5rem;
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .vs { font-size: 8vw; }
+  #result-text { font-size: 5vw; }
 }
 
-#user-score, #comp-score, #draw-score{
-    font-size: 3.2rem;
-}
-
-.msg-container{
-    margin-top: 4rem;
-    
-}
-
-#msg{
-    background-color: #081b31;
-    color: #fff;
-    font-size: 2rem;
-    display: inline;
-    padding: 1rem;
-    border-radius: 1rem;
+#game-count {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  background: rgba(255,255,255,0.8);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 100;
 }
